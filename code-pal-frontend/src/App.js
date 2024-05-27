@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import './App.css';
 import logo from './logo.png'; // Add your logo file to the src folder
