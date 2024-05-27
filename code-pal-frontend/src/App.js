@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 import logo from './logo.png'; // Add your logo file to the src folder
 
@@ -19,39 +20,42 @@ function App() {
   };
 
   const handleExplain = async () => {
-    const response = await fetch('/api/explain', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ code }),
-    });
-    const data = await response.json();
-    setResult(data.explanation);
+    try {
+      const response = await axios.post('http://localhost:5001/api/explain', {
+        code,
+        language
+      });
+      setResult(response.data);
+    } catch (error) {
+      console.error(error);
+      setResult('An error occurred while explaining the code.');
+    }
   };
 
   const handleFix = async () => {
-    const response = await fetch('/api/fix', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ code }),
-    });
-    const data = await response.json();
-    setResult(data.fix);
+    try {
+      const response = await axios.post('http://localhost:5001/api/fix', {
+        code,
+        language
+      });
+      setResult(response.data);
+    } catch (error) {
+      console.error(error);
+      setResult('An error occurred while fixing the code.');
+    }
   };
 
   const handleStyle = async () => {
-    const response = await fetch('/api/style', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ code }),
-    });
-    const data = await response.json();
-    setResult(data.style);
+    try {
+      const response = await axios.post('http://localhost:5001/api/style', {
+        code,
+        language
+      });
+      setResult(response.data);
+    } catch (error) {
+      console.error(error);
+      setResult('An error occurred while styling the code.');
+    }
   };
 
   return (
