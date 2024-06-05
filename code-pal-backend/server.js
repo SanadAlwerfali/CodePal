@@ -9,7 +9,7 @@ const PORT = 5001;
 app.use(cors());
 app.use(bodyParser.json());
 
-const OPENAI_API_KEY = 'YOUR_OPENAI_API_KEY'; 
+const OPENAI_API_KEY = 'LLM_API_KEY'; 
 
 app.post('/api/explain', async (req, res) => {
 //   const { code, language } = req.body;
