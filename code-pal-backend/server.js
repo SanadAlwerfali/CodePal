@@ -11,7 +11,7 @@ const OPENAI_API_KEY = require('../secret-key.json');
 app.use(cors());
 app.use(bodyParser.json());
 
-const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+const openai = new OpenAI({ apiKey: OPENAI_API_KEY.API_KEY });
 
 
 async function callOpenAI(prompt, userCode) {
