@@ -25,16 +25,35 @@
   width: 80%;
 }
 
-.code-input, .result-output {
-  width: 45%;
+.code-input{
+  width: 360px;
   height: 400px;
   margin: 10px;
   padding: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+  resize: none;
   background-color: #1a1a3b;
   border: 1px solid #555;
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
+}
+
+.result-output {
+  width: 360px;
+  height: 400px;
+  margin: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+  resize: none;
+  background-color: #1a1a3b;
+  border: 1px solid #555;
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: left;
 }
 
 .buttons-container {
