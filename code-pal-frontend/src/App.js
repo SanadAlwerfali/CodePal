@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import logo from './logo.png';
+import CodeSnippet from './CodeSnippet';
+import { parseResponse } from './Utils';
 
 function App() {
   const [code, setCode] = useState('');
@@ -57,6 +59,8 @@ function App() {
       setResult('An error occurred while styling the code.');
     }
   };
+  
+  const parsedResult = parseResponse(result);
 
   return (
     <div className="App">
@@ -87,12 +91,15 @@ function App() {
           <button onClick={handleFix}>Fix</button>
           <button onClick={handleStyle}>Style</button>
         </div>
-        <textarea
-          className="result-output"
-          value={result}
-          readOnly
-          placeholder="Results will be shown here"
-        />
+        <div className="result-output">
+          {parsedResult.map((part, index) =>
+            part.type === 'code' ? (
+              <CodeSnippet key={index} language={language.toLowerCase()} code={part.content} />
+            ) : (
+              <p key={index}>{part.content}</p>
+            )
+          )}
+        </div>
       </div>
     </div>
   );
