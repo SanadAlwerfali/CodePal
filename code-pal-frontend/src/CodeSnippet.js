@@ -1,9 +1,9 @@
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const CodeSnippet = ({ language, code }) => (
-  <SyntaxHighlighter language={language} style={dark}>
+  <SyntaxHighlighter language={language} style={coldarkDark}>
     {code}
   </SyntaxHighlighter>
 );
