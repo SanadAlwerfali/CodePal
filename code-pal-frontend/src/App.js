@@ -87,9 +87,9 @@ function App() {
               <a onClick={() => handleLanguageChange('Swift')}>Swift</a>
             </div>
           </div>
-          <button onClick={handleExplain}>Explain</button>
-          <button onClick={handleFix}>Fix</button>
-          <button onClick={handleStyle}>Style</button>
+          <button onClick={handleExplain} disabled={!code}>Explain</button>
+          <button onClick={handleFix} disabled={!code}>Fix</button>
+          <button onClick={handleStyle} disabled={!code}>Style</button>
         </div>
         <div className="result-output">
           {parsedResult.map((part, index) =>

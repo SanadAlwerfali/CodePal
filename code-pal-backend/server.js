@@ -53,6 +53,7 @@ app.post("/api/style", async (req, res) => {
   const { code, language } = req.body;
   try {
     const prompt = prompts.style(language);
+    console.log(prompt);
     const style = await callOpenAI(prompt, code);
     res.json({ style: style.trim() });
   } catch (error) {
